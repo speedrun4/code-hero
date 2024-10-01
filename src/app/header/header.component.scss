@@ -1,5 +1,3 @@
-// src/app/app-header/app-header.component.scss
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -8,68 +6,77 @@
   padding: 10px 20px;
   color: #555555;
   margin-bottom: 24px;
-}
 
-.logo {
-  top: 21px;
-  left: 24px;
-  width: 96px;
-  height: 24px;
-  opacity: 1;
-}
+  .logo {
+    width: 96px;
+    height: 24px;
+    opacity: 1;
 
-.navbar {
-  .nav-list {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+    .nav-link {
+      text-decoration: none;
+      color: inherit; // Mantém a cor do texto igual ao cabeçalho
+      font-size: 24px; // Ajustar tamanho da fonte se necessário
+    }
+  }
 
-    .nav-item {
-      margin-left: 20px; // Espaçamento entre os itens do menu
+  .navbar {
+    .nav-list {
+      list-style: none;
+      display: flex; // Flex para desktop
+      margin: 0;
+      padding: 0;
 
-      .nav-link {
-        text-decoration: none;
-        color: #555555;
-        padding: 10px;
-        transition: background-color 0.3s;
+      .nav-item {
+        margin-left: 20px; // Espaçamento entre os itens do menu
 
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.2); // Efeito de hover
-          border-radius: 4px; // Arredondar cantos no hover
+        .nav-link {
+          text-decoration: none;
+          color: #555555;
+          padding: 10px;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.2); // Efeito de hover
+            border-radius: 4px; // Arredondar cantos no hover
+          }
         }
       }
-    }
-    .nav-item-bold {
-      font-weight: bold;
-    }
 
-    .nav-item-bold-cb {
-      border: 1px solid transparent;
-      color: #555555;
-      font-weight: bold;
-      background-color: #F5F5F5;
-      border-radius: 4px;
-      opacity: 1;
-      align-items: center;
-      gap: 5px;
+      .nav-item-bold {
+        font-weight: bold;
+      }
+
+      .nav-item-bold-cb {
+        border: 1px solid transparent;
+        color: #555555;
+        font-weight: bold;
+        background-color: #F5F5F5;
+        border-radius: 4px;
+        opacity: 1;
+        align-items: center;
+        gap: 5px;
+      }
     }
   }
 }
 
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
-    align-items: flex-start; // Alinhar itens à esquerda
+    flex-direction: column; // Mudar para coluna
+    align-items: center; // Centralizar itens
+    padding: 10px; // Ajustar padding
   }
 
-  .nav-list {
-    flex-direction: column; // Exibir itens do menu em coluna
-    margin-top: 10px;
+  .navbar {
+    .nav-list {
+      flex-direction: column; // Exibir itens do menu em coluna
+      margin-top: 10px;
 
-    .nav-item {
-      margin-left: 0; // Remover margens laterais
-      margin-top: 10px; // Adicionar margens verticais
+      .nav-item {
+        margin-left: 0; // Remover margens laterais
+        margin-top: 10px; // Adicionar margens verticais
+        text-align: center; // Centralizar texto
+      }
     }
   }
 }

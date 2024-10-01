@@ -15,7 +15,7 @@ export class CharacterListComponent implements OnInit {
   searchName: string = '';
   currentPage: number = 1;
   totalPages: number = 20;
-  itemsPerPage: number = 4;
+  itemsPerPage: number = 10;
   maxPageButtons: number = 5;
   screenWidth: number; // Propriedade para armazenar a largura da tela
   isLoading = false; // Estado de carregamento
