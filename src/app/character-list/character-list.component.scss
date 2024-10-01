@@ -1,0 +1,231 @@
+// src/app/components/character-list/character-list.component.scss
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #e5e5e5;
+  box-shadow: 0 4px 8px #e5e5e5 h1 {
+    top: 104px;
+    left: 113px;
+    width: 648px;
+    height: 36px;
+    /* UI Properties */
+    text-align: left;
+    font: normal normal bold 32px/30px PT Sans Caption;
+    letter-spacing: 0px;
+    color: #555555;
+    opacity: 1;
+  }
+
+  .search-container {
+    top: 183px;
+    left: 113px;
+    width: 295px;
+    height: 32px;
+    /* UI Properties */
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 400px; // Define o tamanho máximo da caixa de busca
+
+      input {
+        width: 100%;
+        padding: 10px 40px 10px 15px; // Espaço à direita para o ícone
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+      .search-icon {
+        position: absolute;
+        right: 10px; // Posiciona o ícone à direita dentro do input
+        top: 65%;
+        transform: translateY(-50%); // Centraliza verticalmente o ícone
+        width: 24px; // Ajusta o tamanho do ícone
+        height: 24px;
+        pointer-events: none; // Impede que o ícone interfira na interação com o campo
+      }
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .character-coluns {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #8e8e8e;
+
+    th,
+    td {
+      border-radius: 2px solid;
+      border-bottom: 8px solid #e5e5e5;
+      padding: 12px;
+      text-align: left;
+      background-color: transparent;
+
+      &:first-child {
+        width: 30%;
+      }
+
+      &:nth-child(2) {
+        width: 40%;
+      }
+
+      &:nth-child(3) {
+        width: 30%;
+      }
+    }
+
+    .character-info {
+      display: flex;
+      align-items: center;
+
+      .character-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .character-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: -9px;
+
+    th,
+    td {
+      border-radius: 2px solid;
+      border-bottom: 8px solid #e5e5e5;
+      padding: 12px;
+      text-align: left;
+      background-color: transparent;
+
+      &:first-child {
+        width: 30%;
+      }
+
+      &:nth-child(2) {
+        width: 40%;
+      }
+
+      &:nth-child(3) {
+        width: 30%;
+      }
+    }
+    tr {
+      background-color: white;
+      position: relative;
+      .hover-message {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+        background-color: #007bff;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 14px;
+        white-space: nowrap;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
+      &:hover {
+        background-color: #f9f9f9;
+
+        .hover-message {
+          display: block;
+        }
+      }
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+
+    .character-info {
+      display: flex;
+      align-items: center;
+
+      .character-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.footer-pagination {
+  background-color: white;
+  padding: 20px;
+  position: inherit;
+  bottom: 0;
+  left: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  button {
+    padding: 10px;
+    border: 1px solid transparent;
+    background-color: #F5F5F5;
+    color: #8E8E8E;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+      background-color: #007bff;
+      color: white;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #f0f0f0;
+      color: #ccc;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #0056b3;
+      color: white;
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

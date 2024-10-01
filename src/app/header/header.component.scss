@@ -1,0 +1,62 @@
+// src/app/app-header/app-header.component.scss
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF; // Cor do fundo do cabeçalho
+  padding: 10px 20px;
+  color: #555555;
+  margin-bottom: 24px;
+}
+
+.logo {
+  top: 21px;
+  left: 24px;
+  width: 96px;
+  height: 24px;
+  opacity: 1;
+}
+
+.navbar {
+  .nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    .nav-item {
+      margin-left: 20px; // Espaçamento entre os itens do menu
+
+      .nav-link {
+        text-decoration: none;
+        color: #555555;
+        padding: 10px;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2); // Efeito de hover
+          border-radius: 4px; // Arredondar cantos no hover
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start; // Alinhar itens à esquerda
+  }
+
+  .nav-list {
+    flex-direction: column; // Exibir itens do menu em coluna
+    margin-top: 10px;
+
+    .nav-item {
+      margin-left: 0; // Remover margens laterais
+      margin-top: 10px; // Adicionar margens verticais
+    }
+  }
+}
+

@@ -1,0 +1,13 @@
+<!-- src/app/components/character-detail/character-detail.component.html -->
+<div *ngIf="character">
+  <h1>{{ character.name }}</h1>
+  <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="{{ character.name }}" />
+  <p>{{ character.description || 'Sem descrição disponível' }}</p>
+
+  <h2>Mídias</h2>
+  <div class="media-list">
+    <div *ngFor="let comic of character.comics.items" class="media-item">
+      {{ comic.name }}
+    </div>
+  </div>
+</div>

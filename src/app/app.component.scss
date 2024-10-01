@@ -1,0 +1,62 @@
+// src/app/app.component.scss ou src/styles.scss
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #E5E5E5; // Cor de fundo da página
+}
+
+
+
+.main-container {
+  width: 1366px; // Largura máxima
+  height: 614px; // Altura máxima
+  margin: 64px auto 0 auto; // Centralizar e dar espaço no topo
+  background-color: white; // Fundo branco para o conteúdo
+  padding: 20px; // Espaçamento interno
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); // Sombras suaves
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.pagination-container {
+  width: 314px;
+  height: 32px;
+  margin: 32px auto; // Centralizar a paginação
+  display: flex;
+  justify-content: center;
+}
+

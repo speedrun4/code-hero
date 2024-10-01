@@ -1,0 +1,97 @@
+<!-- src/app/components/character-list/character-list.component.html -->
+<div class="container">
+  <h1>Busca de personagens</h1>
+  <div class="search-container">
+    <div class="input-wrapper">
+      <input type="text" placeholder="Nome do personagem" [(ngModel)]="searchName" (input)="onSearch()" />
+      <img src="/assets/search.svg" class="search-icon" />
+    </div>
+  </div>
+
+  <table class="character-coluns">
+    <thead>
+      <tr>
+        <th>Personagem</th>
+        <th>Séries</th>
+        <th>Eventos</th>
+      </tr>
+    </thead>
+  </table>
+
+  <table class="character-table">
+    <tbody>
+      <tr *ngFor="let character of characters$ | async" (click)="showDetails(character.id)">
+        <td>
+          <div class="character-info">
+            <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" alt="{{ character.name }}"
+              class="character-image" />
+            <span>{{ character.name }}</span>
+            <div class="hover-message">Explore o universo de {{ character.name }}!</div>
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let series of character.series.items">
+            {{ series.name }}
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let event of character.events.items">
+            {{ event.name }}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <app-loader *ngIf="isLoading"></app-loader>
+</div>
+
+<footer class="footer-pagination">
+  <div class="pagination" *ngIf="!isLoading">
+    <!-- Botão para a primeira página -->
+    <button (click)="onPageChange(1)" [disabled]="currentPage === 1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M8.354 1.646a.5.5 0 0 0-.708 0L1.793 7.5a.5.5 0 0 0 0 .707l5.853 5.854a.5.5 0 0 0 .708-.708L2.707 8l5.647-5.646a.5.5 0 0 0 0-.708z" />
+        <path fill-rule="evenodd"
+          d="M12.354 1.646a.5.5 0 0 0-.708 0L5.793 7.5a.5.5 0 0 0 0 .707l5.853 5.854a.5.5 0 0 0 .708-.708L6.707 8l5.647-5.646a.5.5 0 0 0 0-.708z" />
+      </svg>
+    </button>
+
+    <!-- Botão para página anterior -->
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M11.354 1.646a.5.5 0 0 1 0 .708L6.707 7.5l4.647 4.646a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z" />
+      </svg>
+    </button>
+
+    <!-- Páginas visíveis -->
+    <button *ngFor="let page of getVisiblePages()" (click)="onPageChange(page)" [class.active]="currentPage === page">
+      {{ page }}
+    </button>
+
+    <!-- Botão para próxima página -->
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 1 1-.708-.708L9.293 8 4.646 3.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </button>
+
+    <!-- Botão para última página -->
+    <button (click)="onPageChange(totalPages)" [disabled]="currentPage === totalPages">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M3.646 1.646a.5.5 0 0 1 .708 0L9.707 7.5l-5.353 5.354a.5.5 0 0 1-.708-.708L8.293 8 3.646 3.354a.5.5 0 0 1 0-.708z" />
+        <path fill-rule="evenodd"
+          d="M7.646 1.646a.5.5 0 0 1 .708 0L13.707 7.5l-5.353 5.354a.5.5 0 0 1-.708-.708L12.293 8 7.646 3.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    </button>
+  </div>
+</footer>
