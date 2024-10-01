@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #FFFFFF; // Cor do fundo do cabeçalho
+  background-color: #ffffff; // Cor do fundo do cabeçalho
   padding: 10px 20px;
   color: #555555;
   margin-bottom: 24px;
@@ -40,6 +40,20 @@
         }
       }
     }
+    .nav-item-bold {
+      font-weight: bold;
+    }
+
+    .nav-item-bold-cb {
+      border: 1px solid transparent;
+      color: #555555;
+      font-weight: bold;
+      background-color: #F5F5F5;
+      border-radius: 4px;
+      opacity: 1;
+      align-items: center;
+      gap: 5px;
+    }
   }
 }
 
@@ -59,4 +73,3 @@
     }
   }
 }
-
